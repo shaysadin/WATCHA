@@ -23,6 +23,7 @@ const Auth = () => {
             await signIn('credentials', {
                 email,
                 password, 
+                redirect: false,
                 callbackUrl: '/profiles'
             });
 
