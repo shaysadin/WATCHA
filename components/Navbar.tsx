@@ -9,7 +9,7 @@ import useCurrentUser from "@/hooks/useCurrentUser";
 const TOP_OFFSET = 66;
 
 const Navbar = () => {
-    const { data: user } = useCurrentUser();
+    const { data } = useCurrentUser();
 
     const [showMobileMenu, setShowMobileMenu] = useState(false);
     const [showAccountMenu, setShowAccountMenu] = useState(false);
@@ -66,7 +66,7 @@ const Navbar = () => {
                     </div>
                     <div onClick={toggleAccountMenu} className="flex flex-row items-center gap-2 cursor-pointer relative">
                         <div className="w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden">
-                            <img src={user.image === 'undefined' ? '/images/default-red.png' : user.image} alt="profile" />
+                            <img src={!data ? data.image : "/images/default-red.png"} alt="profile" />
                         </div>
                             <BsChevronDown className={`text-white transition ${showAccountMenu ? 'rotate-180' : 'rotate-0'}`} />
                             <AccountMenu visible={showAccountMenu} />
