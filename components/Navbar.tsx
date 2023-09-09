@@ -1,21 +1,26 @@
 import { useCallback, useEffect, useState } from "react";
+import useCurrentUser from "@/hooks/useCurrentUser";
 import MobileMenu from "./MobileMenu";
 import NavbatItem from "./NavbarItem";
 
 import { BsChevronDown, BsSearch, BsBell } from 'react-icons/bs';
 import AccountMenu from "./AccountMenu";
-import useCurrentUser from "@/hooks/useCurrentUser";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const TOP_OFFSET = 66;
 
 const Navbar = () => {
-    const { data: user } = useCurrentUser();
+    const { data } = useCurrentUser();
 
+    
+    
     const [showMobileMenu, setShowMobileMenu] = useState(false);
     const [showAccountMenu, setShowAccountMenu] = useState(false);
     const [showBackground, setShowBackground] = useState(false);
-
-
+    
+    
+    
+    
     useEffect(() => {
         const handleScroll = () =>{
             if(window.scrollY >= TOP_OFFSET){
@@ -24,22 +29,26 @@ const Navbar = () => {
                 setShowBackground(false);
             }
         }
-
+        
         window.addEventListener('scroll', handleScroll);
-
+        
         return () => {
             window.removeEventListener('scroll', handleScroll);
         }
     }, [])
-
+    
     const toggleMobileMenu = useCallback(() => {
         setShowMobileMenu((current) => !current);
     }, []);
-
+    
     const toggleAccountMenu = useCallback(() => {
         setShowAccountMenu((current) => !current);
     }, []);
-
+    
+    if (!data) {
+        // Handle the loading state, e.g., show a loading spinner
+        return <ClipLoader />;
+    }
     return (
         <nav className="w-full fixed z-40">
             <div className={`px-4 md:px-16 py-6 flex flex-row items-center transition duration-500 ${showBackground ? 'bg-zinc-900 bg-opacity-90' : ''}`}>
@@ -66,7 +75,7 @@ const Navbar = () => {
                     </div>
                     <div onClick={toggleAccountMenu} className="flex flex-row items-center gap-2 cursor-pointer relative">
                         <div className="w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden">
-                            <img src={user.image === "" ? '/images/default-red.png' : user.image} alt="profile" />
+                            <img src={!data.image ? "/images/default-red.png" : data.image} alt="profile" />
                         </div>
                             <BsChevronDown className={`text-white transition ${showAccountMenu ? 'rotate-180' : 'rotate-0'}`} />
                             <AccountMenu visible={showAccountMenu} />
