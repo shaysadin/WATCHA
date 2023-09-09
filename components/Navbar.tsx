@@ -12,8 +12,6 @@ const TOP_OFFSET = 66;
 const Navbar = () => {
     const { data } = useCurrentUser();
 
-    
-    
     const [showMobileMenu, setShowMobileMenu] = useState(false);
     const [showAccountMenu, setShowAccountMenu] = useState(false);
     const [showBackground, setShowBackground] = useState(false);
