@@ -52,14 +52,14 @@ const Navbar = () => {
             <div className={`px-4 md:px-16 py-6 flex flex-row items-center transition duration-500 ${showBackground ? 'bg-zinc-900 bg-opacity-90' : ''}`}>
                 <img className="h-6 lg:h-10" src="/images/logo.png" alt="logo" />
                 <div className="flex-row ml-8 gap-7 hidden lg:flex">
-                    <NavbatItem label="Home" />
+                    {/* <NavbatItem label="Home" />
                     <NavbatItem label="Series" />
                     <NavbatItem label="Films" />
                     <NavbatItem label="New & Popular" />
                     <NavbatItem label="My List" />
-                    <NavbatItem label="Browse by language" />
+                    <NavbatItem label="Browse by language" /> */}
                 </div>
-                <div onClick={toggleMobileMenu} className="lg:hidden flex flex-row items-center gap-2 ml-8 cursor-pointer relative">
+                <div onClick={toggleMobileMenu} className="hidden items-center gap-2 ml-8 cursor-pointer relative">
                     <p className="text-white text-sm">Browse</p>
                     <BsChevronDown className={`text-white transition ${showMobileMenu ? 'rotate-180' : 'rotate-0'}`} />
                     <MobileMenu visible={showMobileMenu} />
