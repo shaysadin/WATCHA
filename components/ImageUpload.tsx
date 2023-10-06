@@ -8,7 +8,7 @@ interface ImageUploadProps {
     disabled?: boolean;
 };
 
-export const ImageUpload = ({
+const ImageUpload = ({
     value, onChange, disabled
 }: ImageUploadProps) => {
     const [isMounted, setIsMounted] = useState(false);
@@ -40,3 +40,5 @@ export const ImageUpload = ({
     )
 
 }
+
+export default ImageUpload;

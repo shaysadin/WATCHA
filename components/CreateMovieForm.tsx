@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { AiOutlineClose } from 'react-icons/ai';
-import { ImageUpload } from './ImageUpload';
+import ImageUpload from './ImageUpload';
 import toast, { Toaster } from "react-hot-toast";
 import VideoUpload from './VideoUpload';
 
