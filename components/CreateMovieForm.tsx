@@ -191,7 +191,7 @@ const CreateMovieForm: React.FC<CreateFormModelProps> = ({ visible, onClose }) =
           </div>
         </div>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mt-4 mb-8">Create Movie</h2>
-        <div className="overflow-y-auto overflow-x-hidden p-4">
+        <div className="max-h-[80vh] overflow-y-auto overflow-x-hidden p-4">
         <Formik
           initialValues={{
             title: '',
