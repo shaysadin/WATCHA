@@ -1,13 +1,6 @@
 import { useEffect, useState } from "react";
-// import { CldUploadButton } from "next-cloudinary";
+import { CldUploadButton } from "next-cloudinary";
 import Image from "next/image";
-
-import dynamic from "next/dynamic"; // Import dynamic from Next.js
-
-// Dynamically import the CldUploadButton component
-const CldUploadButton = dynamic(() => import("next-cloudinary").then((mod) => mod.CldUploadButton), {
-  ssr: false, // Disable server-side rendering
-});
 
 interface ImageUploadProps {
     value: string;
@@ -15,7 +8,7 @@ interface ImageUploadProps {
     disabled?: boolean;
 };
 
-const ImageUpload = ({
+export const ImageUpload = ({
     value, onChange, disabled
 }: ImageUploadProps) => {
     const [isMounted, setIsMounted] = useState(false);
@@ -47,5 +40,3 @@ const ImageUpload = ({
     )
 
 }
-
-export default ImageUpload;
