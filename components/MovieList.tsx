@@ -7,12 +7,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
 
 
 
 // import required modules
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 
 interface MovieListProps {
     data: Record<string, any>[];
@@ -58,7 +57,6 @@ const MovieList: React.FC<MovieListProps> = ({ data, title}) => {
             <Swiper
                 slidesPerView={2}
                 spaceBetween={5}
-                navigation={{ enabled: false }}
                 breakpoints={{
                     640: {
                         slidesPerView: 2,
@@ -73,11 +71,7 @@ const MovieList: React.FC<MovieListProps> = ({ data, title}) => {
                         spaceBetween: 7
                     }
                 }}
-                modules={[Pagination, Navigation]}
-                style={{
-                   "--swiper-navigation-color": "#9d00e0",
-                    "--swiper-navigation-size": "50px",
-                  }}
+                modules={[Pagination]}
                 className={`h-[34vw] sm:h-[12vw]`}
             >
                 {data.map((movie) => (
