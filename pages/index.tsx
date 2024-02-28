@@ -49,7 +49,7 @@ export default function Home() {
      <Navbar />
      <Billboard />
      <div className="pb-40">
-        <MovieList title="Trending now" data={movies} isLargeRow />
+        <MovieList title="Trending now" data={movies} />
         <MovieList title="My List" data={favorites} />
         <MovieList title="Action" data={byGenreAction} />
         <MovieList title="Comedy" data={byGenreComedy} />
