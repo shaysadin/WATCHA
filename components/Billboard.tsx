@@ -24,21 +24,9 @@ const Billboard = () => {
     const { openModal } = useInfoModel();
     const { data } = useMovieList(); // Fetch movie data using useMovieList hook
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isVisible, setIsVisible] = useState(false); // Move useState declaration here
-
-    // Move isVisible state inside the useEffect hook
-    useEffect(() => {
-      setIsVisible(true);
-    }, [currentIndex]);
     
     const currentMovie = data && data[currentIndex];
-    
-
-    // const handleOpenModal = useCallback(() => {
-        //     openModal(data?.id);
-        // }, [openModal, data?.id])
-        
-        
+          
         const handleOpenModal = useCallback(() => {
             openModal(data[currentIndex]?.id);
         }, [openModal, data, currentIndex]);
@@ -52,7 +40,7 @@ const Billboard = () => {
     return (
         <div className="relative h-[110.5vw] md:h-[62.5vw] lg:h-[48.50vw]">
              <video poster={currentMovie?.thumbnailUrl} className={`w-full h-[110.5vw] md:h-[62.5vw] lg:h-[48.50vw] object-cover brightness-[60%] transition duration-300`} autoPlay muted loop src={currentMovie?.videoUrl}></video>
-      <div className={`absolute top-[30%] md:top-[40%] ml-4 md:ml-16`}>
+            <div className={`absolute top-[30%] md:top-[40%] ml-4 md:ml-16`}>
                 <p className="text-white text-3xl md:text-5xl h-full w-[50%] lg:text-6xl font-bold drop-shadow-xl">
                     {currentMovie?.title}
                 </p>
@@ -60,7 +48,7 @@ const Billboard = () => {
                     {currentMovie?.description}
                 </p>
                 <div className="flex flex-row items-center mt-3 md:mt-4 gap-3">
-                    <PlayButton movieId={currentMovie?.id} />
+                    {/* <PlayButton movieId={currentMovie?.id} /> */}
                     <button onClick={handleOpenModal} className="bg-white text-white bg-opacity-30 rounded-md py-3 md:py-2 px-3 md:px-3 w-auto text-xs lg:text-lg font-semibold flex flex-row items-center hover:bg-opacity-20 transition">
                         <AiOutlineInfoCircle className="mr-1" />
                         More Info
