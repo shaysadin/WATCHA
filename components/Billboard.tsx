@@ -50,9 +50,9 @@ const Billboard = () => {
 
 
     return (
-        <div className="relative h-[110.5vw] md:h-[62.5vw] lg:h-[48.50vw] overflow-hidden">
-             <video className={`w-full h-full object-cover brightness-[60%] absolute top-0 left-0 ${isVisible ? 'fade-in' : 'fade-out'}`} autoPlay muted loop src={currentMovie?.videoUrl}></video>
-      <div className={`absolute top-[30%] md:top-[40%] ml-4 md:ml-16 ${isVisible ? 'fade-in' : 'fade-out'}`}>
+        <div className="relative h-[110.5vw] md:h-[62.5vw] lg:h-[48.50vw]">
+             <video className={`w-full h-full object-cover brightness-[60%] absolute top-0 left-0 transition duration-500`} autoPlay muted loop src={currentMovie?.videoUrl}></video>
+      <div className={`absolute top-[30%] md:top-[40%] ml-4 md:ml-16`}>
                 <p className="text-white text-3xl md:text-5xl h-full w-[50%] lg:text-6xl font-bold drop-shadow-xl">
                     {currentMovie?.title}
                 </p>
@@ -61,14 +61,14 @@ const Billboard = () => {
                 </p>
                 <div className="flex flex-row items-center mt-3 md:mt-4 gap-3">
                     <PlayButton movieId={currentMovie?.id} />
-                    <button onClick={handleOpenModal} className="bg-white text-white bg-opacity-30 rounded-md py-2 md:py-2 px-3 md:px-3 w-auto text-xs lg:text-lg font-semibold flex flex-row items-center hover:bg-opacity-20 transition">
+                    <button onClick={handleOpenModal} className="bg-white text-white bg-opacity-30 rounded-md py-3 md:py-2 px-3 md:px-3 w-auto text-xs lg:text-lg font-semibold flex flex-row items-center hover:bg-opacity-20 transition">
                         <AiOutlineInfoCircle className="mr-1" />
                         More Info
                     </button>
                 </div>
             </div>
 
-            <div className="absolute bottom-[-35px] right-[-30px] sm:bottom-0 sm:right-0 flex flex-row items-end mr-4 mb-4 space-y-4 w-[50%] h-[25%] sm:w-[55%] sm:h-[23vh]">
+            <div className="absolute bottom-[-55px] right-[-15px] sm:bottom-0 sm:right-0 flex flex-row items-end mr-4 mb-4 space-y-4 w-[70%] h-[70%] sm:w-[55%] sm:h-[23vh]">
                 <Swiper
                     effect={'coverflow'}
                     grabCursor={true}
@@ -86,8 +86,8 @@ const Billboard = () => {
                     onSlideChange={(swiper: { realIndex: React.SetStateAction<number>; }) => setCurrentIndex(swiper.realIndex)}
                 >
                     {data.map((movie: { thumbnailUrl: string | undefined; }, index: any) => (
-                        <SwiperSlide className="object-fill" key={index}>
-                            <img src={movie?.thumbnailUrl} className="w-[100%] h-[70px] sm:h-[180px]" />
+                        <SwiperSlide className="object-cover" key={index}>
+                            <img onClick={handleOpenModal} src={movie?.thumbnailUrl} className="w-[100%] h-[120px] sm:h-[180px]" />
                         </SwiperSlide>
                     ))};
                 </Swiper>
