@@ -20,26 +20,38 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 
 const Billboard = () => {
 
+
     // const { data } = useBillboard();
     const { openModal } = useInfoModel();
     const { data } = useMovieList(); // Fetch movie data using useMovieList hook
     const [currentIndex, setCurrentIndex] = useState(0);
-    
-    const currentMovie = data && data[currentIndex];
-          
-        const handleOpenModal = useCallback(() => {
-            openModal(data[currentIndex]?.id);
-        }, [openModal, data, currentIndex]);
-        
-        
-        if (!data || data.length === 0) {
-            return <div>No data available</div>;
-        }
 
+    const currentMovie = data && data[currentIndex];
+
+    const handleOpenModal = useCallback(() => {
+        openModal(data[currentIndex]?.id);
+    }, [openModal, data, currentIndex]);
+
+
+    if (!data || data.length === 0) {
+        return <div>No data available</div>;
+    }
 
     return (
         <div className="relative h-[120.5vw] md:h-[62.5vw] lg:h-[48.50vw]">
-             <video poster={currentMovie?.thumbnailUrl} className={`w-full h-[120.5vw] md:h-[62.5vw] lg:h-[48.50vw] object-cover brightness-[60%]`} autoPlay muted loop webkit-playsinline playsInline src={currentMovie?.videoUrl}></video>
+             <video
+        id="billboard-video"
+        poster={currentMovie?.thumbnailUrl}
+        className={`w-full h-[110.5vw] md:h-[62.5vw] lg:h-[48.50vw] object-cover brightness-[60%] transition duration-300`}
+        loop
+        autoPlay
+        muted
+        playsInline
+        webkit-playsinline
+      >
+        <source src={currentMovie?.videoUrl} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
             <div className={`absolute top-[30%] md:top-[40%] ml-4 md:ml-16`}>
                 <p className="text-white text-3xl md:text-5xl h-full w-[50%] lg:text-6xl font-bold drop-shadow-xl">
                     {currentMovie?.title}

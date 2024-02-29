@@ -12,7 +12,7 @@ import useInfoModel from "@/hooks/useInfoModel";
 import useMoviesByGenre from "@/hooks/useMoviesByGenre";
 import CreateMovieForm from "@/components/CreateMovieForm";
 import useCreateMovieForm from "@/hooks/useCreateMovieForm";
-import { useEffect, useState } from "react";
+
 
 
 
@@ -43,22 +43,7 @@ export default function Home() {
   const { isOpen, closeModal } = useInfoModel();
   const { isFormOpen, closeForm } = useCreateMovieForm();
 
-  const [isReloaded, setIsReloaded] = useState(false);
-
-  useEffect(() => {
-    if (!isReloaded) {
-      // Reload the page after 1 second (1000 milliseconds)
-      const timer = setTimeout(() => {
-        window.location.reload();
-      }, 1000);
-
-      // Set the flag to indicate that the page has been reloaded
-      setIsReloaded(true);
-
-      // Cleanup the timer to prevent memory leaks
-      return () => clearTimeout(timer);
-    }
-  }, [isReloaded]);
+  
   return (
     <>
     <InfoModel visible={isOpen} onClose={closeModal} />
