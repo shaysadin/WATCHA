@@ -39,7 +39,7 @@ const Billboard = () => {
 
     return (
         <div className="relative h-[120.5vw] md:h-[62.5vw] lg:h-[48.50vw]">
-             <video poster={currentMovie?.thumbnailUrl} className={`w-full h-[120.5vw] md:h-[62.5vw] lg:h-[48.50vw] object-cover brightness-[60%] transition duration-300`} autoPlay muted loop webkit-playsinline playsInline src={currentMovie?.videoUrl}></video>
+             <video poster={currentMovie?.thumbnailUrl} className={`w-full h-[120.5vw] md:h-[62.5vw] lg:h-[48.50vw] object-cover brightness-[60%]`} autoPlay muted loop webkit-playsinline playsInline src={currentMovie?.videoUrl}></video>
             <div className={`absolute top-[30%] md:top-[40%] ml-4 md:ml-16`}>
                 <p className="text-white text-3xl md:text-5xl h-full w-[50%] lg:text-6xl font-bold drop-shadow-xl">
                     {currentMovie?.title}
