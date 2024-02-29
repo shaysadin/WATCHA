@@ -12,6 +12,7 @@ import useInfoModel from "@/hooks/useInfoModel";
 import useMoviesByGenre from "@/hooks/useMoviesByGenre";
 import CreateMovieForm from "@/components/CreateMovieForm";
 import useCreateMovieForm from "@/hooks/useCreateMovieForm";
+import { useEffect, useState } from "react";
 
 
 
