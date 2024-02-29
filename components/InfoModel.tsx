@@ -38,7 +38,7 @@ const InfoModel: React.FC<InfoModelProps> = ({ visible, onClose }) => {
         <div className={`${isVisible ? 'scale-100' : 'scale-0'} transform duration-300 relative flex-auto bg-zinc-900 drop-shadow-md`}>
 
           <div className="relative h-96">
-            <video poster={data?.thumbnailUrl} autoPlay muted loop src={data?.videoUrl} className="w-full brightness-[60%] object-cover h-full" />
+            <video webkit-playsinline={true} playsInline poster={data?.thumbnailUrl} autoPlay muted loop src={data?.videoUrl} className="w-full brightness-[60%] object-cover h-full" />
             <div onClick={handleClose} className="cursor-pointer absolute top-3 right-3 h-10 w-10 rounded-full bg-black bg-opacity-70 flex items-center justify-center">
               <AiOutlineClose className="text-white w-6" />
             </div>
