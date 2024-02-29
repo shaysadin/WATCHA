@@ -39,7 +39,7 @@ const Billboard = () => {
 
     return (
         <div className="relative h-[110.5vw] md:h-[62.5vw] lg:h-[48.50vw]">
-             <video poster={currentMovie?.thumbnailUrl} className={`w-full h-[110.5vw] md:h-[62.5vw] lg:h-[48.50vw] object-cover brightness-[60%] transition duration-300`} autoPlay muted loop src={currentMovie?.videoUrl}></video>
+             <video poster={currentMovie?.thumbnailUrl} className={`w-full h-[110.5vw] md:h-[62.5vw] lg:h-[48.50vw] object-cover brightness-[60%] transition duration-300`} autoPlay muted loop playsInline src={currentMovie?.videoUrl}></video>
             <div className={`absolute top-[30%] md:top-[40%] ml-4 md:ml-16`}>
                 <p className="text-white text-3xl md:text-5xl h-full w-[50%] lg:text-6xl font-bold drop-shadow-xl">
                     {currentMovie?.title}
@@ -48,7 +48,7 @@ const Billboard = () => {
                     {currentMovie?.description}
                 </p>
                 <div className="flex flex-row items-center mt-3 md:mt-4 gap-3">
-                    {/* <PlayButton movieId={currentMovie?.id} /> */}
+                    <PlayButton movieId={currentMovie?.id} />
                     <button onClick={handleOpenModal} className="bg-white text-white bg-opacity-30 rounded-md py-3 md:py-2 px-3 md:px-3 w-auto text-xs lg:text-lg font-semibold flex flex-row items-center hover:bg-opacity-20 transition">
                         <AiOutlineInfoCircle className="mr-1" />
                         More Info
