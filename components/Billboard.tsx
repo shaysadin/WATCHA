@@ -51,7 +51,7 @@ const Billboard = () => {
 
     return (
         <div className="relative h-[110.5vw] md:h-[62.5vw] lg:h-[48.50vw]">
-             <video className={`w-full h-full object-cover brightness-[60%] absolute top-0 left-0 transition duration-500`} autoPlay muted loop src={currentMovie?.videoUrl}></video>
+             <video poster={currentMovie?.thumbnailUrl} className={`w-full h-[110.5vw] md:h-[62.5vw] lg:h-[48.50vw] object-cover brightness-[60%] transition duration-300`} autoPlay muted loop src={currentMovie?.videoUrl}></video>
       <div className={`absolute top-[30%] md:top-[40%] ml-4 md:ml-16`}>
                 <p className="text-white text-3xl md:text-5xl h-full w-[50%] lg:text-6xl font-bold drop-shadow-xl">
                     {currentMovie?.title}
@@ -87,7 +87,7 @@ const Billboard = () => {
                 >
                     {data.map((movie: { thumbnailUrl: string | undefined; }, index: any) => (
                         <SwiperSlide className="object-cover" key={index}>
-                            <img onClick={handleOpenModal} src={movie?.thumbnailUrl} className="w-[100%] h-[120px] sm:h-[180px]" />
+                            <img onClick={handleOpenModal} src={movie?.thumbnailUrl} className="w-[100%] h-[120px] sm:h-[180px] rounded-md" />
                         </SwiperSlide>
                     ))};
                 </Swiper>
